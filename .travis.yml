@@ -1,0 +1,2 @@
+language: java
+clean install -Dtag=@journey_casestudy
