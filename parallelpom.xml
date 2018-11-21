@@ -32,6 +32,9 @@
                             <glue>
                                 <package>com.myApp.steps</package>
                             </glue>
+                            <tags>
+                                <tag>${tag}</tag>
+                            </tags>
                             <outputDirectory>${project.build.directory}/generated-test-sources/cucumber
                             </outputDirectory>
                             <featuresDirectory>src/test/resources/features</featuresDirectory>
@@ -100,6 +103,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <tag>${tag}</tag>
     </properties>
 
     <dependencies>

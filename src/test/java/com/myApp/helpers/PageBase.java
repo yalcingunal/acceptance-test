@@ -3,6 +3,7 @@ package com.myApp.helpers;
 import com.github.webdriverextensions.WebDriverExtensionFieldDecorator;
 import com.myApp.core.driver.MyWebDriver;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -64,7 +65,13 @@ public abstract class PageBase {
     }
 
     public void clickWithJavaScript(WebElement we){
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", we);
+        try {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", we);
+        }catch (NoSuchElementException e){
+            System.out.println(e);
+            return;
+        }
+
     }
 
 }

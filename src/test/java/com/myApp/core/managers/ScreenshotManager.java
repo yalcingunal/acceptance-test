@@ -24,6 +24,7 @@ public class ScreenshotManager {
 
     public static void saveFailScenarioScreenshot(WebDriver driver, Scenario scenario) throws IOException {
         String path = String.format(FAIL_SCENARIO_PATH, scenario.getName());
+        scenario.embed(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES), "image/png");
         saveScreenshot(driver, path);
     }
 }
