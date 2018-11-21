@@ -47,7 +47,6 @@ Feature: Amazon
     And   Visitor goes to wish list on the Account Page
     And   Visitor should see added product on the List Page
 
-  @journey_casestudy
   Scenario: Visitor should remove product from List on the List Page
     Given Visitor is on the HomePage
     And   Visitor go to the login page
