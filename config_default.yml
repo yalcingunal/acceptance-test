@@ -1,0 +1,12 @@
+# THIS IS A DEFAULT CONFIGURATION
+# To localy override values, create config.yml file next to this one.
+# You can also override these values by specyfing a system property
+
+Browser: "CHROME" # acceptable values: FIREFOX, CHROME
+
+# Specify browser window size in format <width>x<height>, example: 800x600
+# use "maximised" value if you want browser to be maximised
+
+BaseUrl: "https://www.amazon.com"
+UsingSeleniumGrid: "true"
+SeleniumGridSwarmUrl: "http://46.101.144.215:4444/wd/hub"
