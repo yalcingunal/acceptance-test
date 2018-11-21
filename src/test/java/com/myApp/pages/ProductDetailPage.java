@@ -2,7 +2,6 @@ package com.myApp.pages;
 
 import com.myApp.core.driver.MyWebDriver;
 import com.myApp.pages.entities.ProductDetail;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
@@ -54,7 +53,7 @@ public class ProductDetailPage extends HomePageBase {
         Thread.sleep(5000);
         try {
             closeButton.click();
-        }catch (NoSuchElementException e){
+        }catch (Exception e){
             System.out.println(e);
         }
 
