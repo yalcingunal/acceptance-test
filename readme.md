@@ -2,7 +2,7 @@
 
 Tag Feature Run
     
-    `mvn clean install -Dtag=@journey_casestudy -f parallelpom.xml`
+    mvn clean install -Dtag=@journey_casestudy -f parallelpom.xml
 
 All Feature Single Run 
      
