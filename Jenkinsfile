@@ -11,12 +11,12 @@ pipeline {
 
           }
           steps {
-            sh 'ls'
+            sh 'mvn clean install -Dtag=@HomePage -f parallelpom.xml'
           }
         }
         stage('LogIn') {
           steps {
-            sh 'ls'
+            sh 'mvn clean install -Dtag=@LogIn -f parallelpom.xml'
           }
         }
       }
