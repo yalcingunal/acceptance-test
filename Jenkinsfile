@@ -7,6 +7,7 @@ pipeline {
               agent {
                 docker {
                   image 'ozanberk/mp-test:latest'
+                  args '-v $HOME/.m2:/root/.m2'
                 }
 
               }
@@ -18,6 +19,7 @@ pipeline {
               agent {
                 docker {
                   image 'ozanberk/mp-test:latest'
+                  args '-v $HOME/.m2:/root/.m2'
                 }
 
               }
@@ -29,6 +31,7 @@ pipeline {
               agent {
                 docker {
                   image 'ozanberk/mp-test:latest'
+                  args '-v $HOME/.m2:/root/.m2'
                 }
 
               }
@@ -40,6 +43,7 @@ pipeline {
               agent {
                 docker {
                   image 'ozanberk/mp-test:latest'
+                  args '-v $HOME/.m2:/root/.m2'
                 }
 
               }
