@@ -7,13 +7,17 @@ pipeline {
               agent {
                 docker {
                   image 'ozanberk/mp-test:latest'
-                  args '-v $HOME/.m2:/root/.m2 -v /root/testresults:/'
+                  args '-v $HOME/.m2:/root/.m2'
                 }
 
               }
               steps {
                 sh 'mvn clean install -Dtag=@LogIn -f parallelpom.xml'
                 sh 'pwd'
+                sh 'ls -l'
+                sh 'cd ..'
+                sh 'ls -l'
+                sh 'cd ..'
                 sh 'ls -l'
               }
             }
