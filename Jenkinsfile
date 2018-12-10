@@ -7,58 +7,48 @@ pipeline {
               agent {
                 docker {
                   image 'ozanberk/mp-test:latest'
-                  args '-v $HOME/.m2:/root/.m2'
+                  args '-v $HOME/.m2:/root/.m2 -v /root/testresultsa:/var/lib/jenkins/workspace/acceptance-test_master@2/'
                 }
 
               }
               steps {
                 sh 'mvn clean install -Dtag=@LogIn -f parallelpom.xml'
-                sh 'pwd'
-                sh 'ls -l'
-                sh 'cd ..'
-                sh 'ls -l'
-                sh 'cd ..'
-                sh 'ls -l'
               }
             }
             stage('Search') {
               agent {
                 docker {
                   image 'ozanberk/mp-test:latest'
-                  args '-v $HOME/.m2:/root/.m2 -v /root/testresults:/'
+                  args '-v $HOME/.m2:/root/.m2 -v /root/testresultsb:/var/lib/jenkins/workspace/'
                 }
 
               }
               steps {
                 sh 'mvn clean install -Dtag=@Search -f parallelpom.xml'
-                sh 'pwd'
-                sh 'ls -l'
               }
             }
             stage('ProductPagination') {
               agent {
                 docker {
                   image 'ozanberk/mp-test:latest'
-                  args '-v $HOME/.m2:/root/.m2 -v /root/testresults:/'
+                  args '-v $HOME/.m2:/root/.m2 -v /root/testresultsc:/var/lib/jenkins/'
                 }
 
               }
               steps {
                 sh 'mvn clean install -Dtag=@ProductPagination -f parallelpom.xml'
-                sh 'ls -l'
               }
             }
             stage('ProductDetail') {
               agent {
                 docker {
                   image 'ozanberk/mp-test:latest'
-                  args '-v $HOME/.m2:/root/.m2 -v /root/testresults:/'
+                  args '-v $HOME/.m2:/root/.m2 -v /root/testresultsd:/var/lib/'
                 }
 
               }
               steps {
                 sh 'mvn clean install -Dtag=@ProductDetail -f parallelpom.xml'
-                sh 'ls -l'
               }
             }
           }
