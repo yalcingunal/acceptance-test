@@ -6,7 +6,7 @@ pipeline {
             stage('LogIn') {
               agent {
                 docker {
-                  image 'ozanberk/mp-test:latest'
+                  image 'openshift/jenkins-slave-maven-centos7'
                   args '-v $HOME/.m2:/root/.m2 -v /root/testresultsa:/var/lib/jenkins/workspace/acceptance-test_master@2/'
                 }
 
@@ -18,7 +18,7 @@ pipeline {
             stage('Search') {
               agent {
                 docker {
-                  image 'ozanberk/mp-test:latest'
+                  image 'mzagar/jenkins-slave-jdk-maven-git'
                   args '-v $HOME/.m2:/root/.m2 -v /root/testresultsb:/var/lib/jenkins/workspace/'
                 }
 
