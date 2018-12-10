@@ -13,6 +13,7 @@ pipeline {
               }
               steps {
                 sh 'mvn clean install -Dtag=@LogIn -f parallelpom.xml'
+                sh 'ls -l'
               }
             }
             stage('Search') {
@@ -25,6 +26,7 @@ pipeline {
               }
               steps {
                 sh 'mvn clean install -Dtag=@Search -f parallelpom.xml'
+                sh 'ls -l'
               }
             }
             stage('ProductPagination') {
@@ -37,6 +39,7 @@ pipeline {
               }
               steps {
                 sh 'mvn clean install -Dtag=@ProductPagination -f parallelpom.xml'
+                sh 'ls -l'
               }
             }
             stage('ProductDetail') {
@@ -49,6 +52,7 @@ pipeline {
               }
               steps {
                 sh 'mvn clean install -Dtag=@ProductDetail -f parallelpom.xml'
+                sh 'ls -l'
               }
             }
           }
