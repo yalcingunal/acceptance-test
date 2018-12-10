@@ -7,7 +7,7 @@ pipeline {
               agent {
                 docker {
                   image 'ozanberk/mp-test:latest'
-                  args '-v $HOME/.m2:/root/.m2 \\ -v target/cucumber-parallel:/testresults'
+                  args '-v $HOME/.m2:/root/.m2;target/cucumber-parallel:/testresults'
                 }
 
               }
@@ -20,7 +20,7 @@ pipeline {
               agent {
                 docker {
                   image 'ozanberk/mp-test:latest'
-                  args '-v $HOME/.m2:/root/.m2 \\ -v target/cucumber-parallel:/testresults'
+                  args '-v $HOME/.m2:/root/.m2,target/cucumber-parallel:/testresults'
                 }
 
               }
@@ -33,7 +33,8 @@ pipeline {
               agent {
                 docker {
                   image 'ozanberk/mp-test:latest'
-                  args '-v $HOME/.m2:/root/.m2 \\ -v target/cucumber-parallel:/testresults'
+                  args '-v $HOME/.m2:/root/.m2 \\
+                   -v target/cucumber-parallel:/testresults'
                 }
 
               }
