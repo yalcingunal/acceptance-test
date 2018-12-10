@@ -6,8 +6,8 @@ pipeline {
             stage('LogIn') {
               agent {
                 docker {
-                  image 'openshift/jenkins-slave-maven-centos7'
-                  args '-v $HOME/.m2:/root/.m2 -v /root/testresultsa:/var/lib/jenkins/workspace/acceptance-test_master@2/'
+                  image 'ozanberk/mp-test:latest'
+                  args '-v var/lib/jenkins/.m2:/root/.m2 -v /root/testresultsa:/var/lib/jenkins/workspace/acceptance-test_master@2/'
                 }
 
               }
@@ -18,8 +18,8 @@ pipeline {
             stage('Search') {
               agent {
                 docker {
-                  image 'mzagar/jenkins-slave-jdk-maven-git'
-                  args '-v $HOME/.m2:/root/.m2 -v /root/testresultsb:/var/lib/jenkins/workspace/'
+                  image 'ozanberk/mp-test:latest'
+                  args '-v var/lib/jenkins/.m2:/root/.m2 -v /root/testresultsb:/var/lib/jenkins/workspace/'
                 }
 
               }
@@ -31,7 +31,7 @@ pipeline {
               agent {
                 docker {
                   image 'ozanberk/mp-test:latest'
-                  args '-v $HOME/.m2:/root/.m2 -v /root/testresultsc:/var/lib/jenkins/'
+                  args '-v /var/lib/jenkins/.m2:/root/.m2 -v /root/testresultsc:/var/lib/jenkins/'
                 }
 
               }
@@ -43,7 +43,7 @@ pipeline {
               agent {
                 docker {
                   image 'ozanberk/mp-test:latest'
-                  args '-v $HOME/.m2:/root/.m2 -v /root/testresultsd:/var/lib/'
+                  args '-v /var/lib/jenkins/.m2:/root/.m2 -v /root/testresultsd:/var/lib/'
                 }
 
               }
