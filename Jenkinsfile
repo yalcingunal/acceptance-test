@@ -7,12 +7,13 @@ pipeline {
               agent {
                 docker {
                   image 'ozanberk/mp-test:latest'
-                  args '-v $HOME/.m2:/root/.m2 -v /root/testresults:/root'
+                  args '-v $HOME/.m2:/root/.m2 -v /root/testresults:/'
                 }
 
               }
               steps {
                 sh 'mvn clean install -Dtag=@LogIn -f parallelpom.xml'
+                sh 'pwd'
                 sh 'ls -l'
               }
             }
@@ -20,12 +21,13 @@ pipeline {
               agent {
                 docker {
                   image 'ozanberk/mp-test:latest'
-                  args '-v $HOME/.m2:/root/.m2 -v /root/testresults:/root'
+                  args '-v $HOME/.m2:/root/.m2 -v /root/testresults:/'
                 }
 
               }
               steps {
                 sh 'mvn clean install -Dtag=@Search -f parallelpom.xml'
+                sh 'pwd'
                 sh 'ls -l'
               }
             }
@@ -33,7 +35,7 @@ pipeline {
               agent {
                 docker {
                   image 'ozanberk/mp-test:latest'
-                  args '-v $HOME/.m2:/root/.m2 -v /root/testresults:/root'
+                  args '-v $HOME/.m2:/root/.m2 -v /root/testresults:/'
                 }
 
               }
@@ -46,7 +48,7 @@ pipeline {
               agent {
                 docker {
                   image 'ozanberk/mp-test:latest'
-                  args '-v $HOME/.m2:/root/.m2 -v /root/testresults:/root'
+                  args '-v $HOME/.m2:/root/.m2 -v /root/testresults:/'
                 }
 
               }
